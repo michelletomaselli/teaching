@@ -1,1 +1,1 @@
-# teaching
+Teaching resources
