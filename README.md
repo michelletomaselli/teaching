@@ -1,1 +1,1 @@
-Teaching resources
+## Teaching resources for Bioinformatics
