@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 LABEL maintainer "Diego Garrido Martín <diego.garrido@crg.eu>" \
-      version "0.5" \
+      version "1.0" \
       description "Teaching - software for eQTL mapping"
 
 ## Get basic tools
@@ -17,7 +17,6 @@ RUN apt-get update --fix-missing -qq && apt-get install -y -q \
     git-all \
     libgsl-dev \
     libssl-dev \
-    #libcurl4-gnutls-dev \
     libcurl4-openssl-dev \
     libnlopt-dev \
     r-base=${R_BASE_VERSION}* \
@@ -76,7 +75,7 @@ RUN cd /software/bcftools-1.9/htslib-1.9 \
     && ./configure --prefix=$PWD \
     && make \
     && ln -s /software/bcftools-1.9/htslib-1.9/tabix /usr/local/bin/tabix \
-    && ln -s /software/bcftools-1.9/htslib-1.9/bgzip /usr/local/bin/bgzip 
+    && ln -s /software/bcftools-1.9/htslib-1.9/bgzip /usr/local/bin/bgzip
 
 ## Install R packages
 RUN R -e 'install.packages(c("optparse", "data.table", "ggplot2", "dplyr"), repos = "http://cloud.r-project.org/")'
@@ -84,8 +83,6 @@ RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("GenomicRang
 RUN wget --quiet https://cran.r-project.org/src/contrib/Archive/GenABEL/GenABEL_1.8-0.tar.gz \
     && wget --quiet https://cran.r-project.org/src/contrib/Archive/GenABEL.data/GenABEL.data_1.0.0.tar.gz \
     && R CMD INSTALL GenABEL.data_1.0.0.tar.gz \
-    && R CMD INSTALL GenABEL_1.8-0.tar.gz 
-#    && R -e 'install.packages("GenABEL.data_1.0.0.tar.gz", repos = NULL, type="source")' \
-#    && R -e 'install.packages("GenABEL_1.8-0.tar.gz", repos = NULL, type="source")'
+    && R CMD INSTALL GenABEL_1.8-0.tar.gz
 RUN wget --quiet https://github.com/downloads/PMBio/peer/R_peer_source_1.3.tgz \
     && R CMD INSTALL R_peer_source_1.3.tgz
