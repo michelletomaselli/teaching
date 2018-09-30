@@ -47,7 +47,7 @@ RUN cd software \
 RUN cd software \
     && mkdir PLINK \
     && cd PLINK \
-    && wget --quiet https://www.cog-genomics.org/static/bin/plink180807/plink_linux_x86_64.zip \
+    && wget --quiet https://www.cog-genomics.org/static/bin/plink180913/plink_linux_x86_64.zip \
     && unzip plink_linux_x86_64.zip \
     && chmod +x plink \
     && ln -s /software/PLINK/plink /usr/local/bin/plink
@@ -83,6 +83,8 @@ RUN R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("GenomicRang
 RUN wget --quiet https://cran.r-project.org/src/contrib/Archive/GenABEL/GenABEL_1.8-0.tar.gz \
     && wget --quiet https://cran.r-project.org/src/contrib/Archive/GenABEL.data/GenABEL.data_1.0.0.tar.gz \
     && R CMD INSTALL GenABEL.data_1.0.0.tar.gz \
-    && R CMD INSTALL GenABEL_1.8-0.tar.gz
+    && R CMD INSTALL GenABEL_1.8-0.tar.gz \
+    && rm GenABEL*
 RUN wget --quiet https://github.com/downloads/PMBio/peer/R_peer_source_1.3.tgz \
-    && R CMD INSTALL R_peer_source_1.3.tgz
+    && R CMD INSTALL R_peer_source_1.3.tgz \
+    && rm R_peer_source_1.3.tgz

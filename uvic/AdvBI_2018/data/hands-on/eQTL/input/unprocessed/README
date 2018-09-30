@@ -1,0 +1,26 @@
+#  eQTL mapping pipeline
+#  INPUT DATA 
+#  ==========================================================================================================================
+#
+#  .
+#  ├ 1000g                                                                                      > 1000 GENOMES PROJECT
+#  │   ├ 1000g.phase3_metadata.txt                                                                Metadata
+#  │   ├ ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz               Genotype file
+#  │   └ ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz.tbi           Genotype file index
+#  │    
+#  ├ ensembl											> ENSEMBL            
+#  │  												  (empty)
+#  │ 
+#  ├ gencode											> GENCODE 
+#  │                                                                                              (empty)
+#  │  												  
+#  ├ geuvadis										        > GEUVADIS PROJECT
+#  │   ├ geuvadis.gene_expr_rpkm.tsv.gz                                                           Gene expression matrix
+#  │   └ geuvadis.metadata.txt                                                                    Metadata
+#  │   
+#  ├ gwas                                                                                       > GWAS
+#  │   └ gwas.catalog.hg19.bed									  GWAS catalog in BED format
+#  │  
+#  └ README
+#
+#  5 directories, 7 files
