@@ -6,6 +6,7 @@
 
 ## Load libraries
 library(optparse)
+library(data.table)
 
 ## Parse arguments
 option_list = list(
@@ -43,7 +44,7 @@ QQplot <- function(pvector, main = NULL, ...) {
 ## Run
 set.seed(123)
 
-tb <- read.table(opt$input, header = opt$header, as.is = T)
+tb <- as.data.frame(fread(opt$input, header = opt$header, as.is = T))
 pv <- tb[, opt$col]
 
 if (is.numeric(pv) && all(pv <= 1) && all(pv > 0)){
