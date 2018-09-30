@@ -5,8 +5,8 @@
 #  .
 #  ├ 1000g                                                                                      > 1000 GENOMES PROJECT
 #  │   ├ 1000g.phase3_metadata.txt                                                                Metadata
-#  │   ├ ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz               Genotype file*
-#  │   └ ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz.tbi           Genotype file index*
+#  │   ├ ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz               Genotype file
+#  │   └ ALL.chr22.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz.tbi           Genotype file index
 #  │    
 #  ├ ensembl											> ENSEMBL            
 #  │  												  (empty)
@@ -24,5 +24,3 @@
 #  └ README
 #
 #  5 directories, 7 files
-
-#  (*) This files should be downloaded
