@@ -64,8 +64,8 @@ read.chunk <- function(gr, file, header = TRUE) {
                 ncol, byrow = TRUE)
   bed <- data.table::data.table(bed)
   if (header) {
-    data.table::setnames(bed, gsub("#", "", colnames(data.table::fread(paste("zcat <", file), 
-                                                             nrows = 1, skip = "#CHROM"))))
+    data.table::setnames(bed, gsub("#", "", colnames(suppressMessages(data.table::fread(paste("zcat <", file), 
+                                                             nrows = 1, skip = "#CHROM")))))
   }
   bed <- bed[, lapply(.SD, function(ee) utils::type.convert(as.character(ee), 
                                                             as.is = TRUE))]
@@ -89,6 +89,9 @@ if(!is.null(opt$snp)){
  tb <- subset(tb, var_id == opt$snp)
 }
 
+GE <- as.data.frame(suppressMessages(fread(paste("zcat <", opt$expression), header = TRUE, skip = "#chr")))
+colnames(GE) <- gsub("#", "", colnames(GE))
+
 for (x in 1:nrow(tb)){
  
   # Extract fields of interest
@@ -99,7 +102,7 @@ for (x in 1:nrow(tb)){
   snp <- tb[x, "var_id"]
   slope <- tb[x, "slope"]
   pv <- tb[x, "pv"]
-  
+
   if(opt$verbose){
     cat(sprintf("Plot %s/%s: gene %s and snp %s\n", x, nrow(tb), gene, snp))
   } 
@@ -115,8 +118,7 @@ for (x in 1:nrow(tb)){
   alt <- gsub(TRUE, "T", subset.snp$ALT)
 
   # Expression
-  ge <- as.data.frame(fread(paste("zcat <", opt$expression), header = TRUE, skip = "#chr"))
-  colnames(ge) <- gsub("#", "", colnames(ge)) 
+  ge <- GE
 
   # Generate df to plot
   subset.gene <- ge[which(ge$gene == gene), ]
