@@ -44,7 +44,7 @@ QQplot <- function(pvector, main = NULL, ...) {
 ## Run
 set.seed(123)
 
-tb <- as.data.frame(fread(opt$input, header = opt$header, as.is = T))
+tb <- as.data.frame(fread(opt$input, header = opt$header))
 pv <- tb[, opt$col]
 
 if (is.numeric(pv) && all(pv <= 1) && all(pv > 0)){
