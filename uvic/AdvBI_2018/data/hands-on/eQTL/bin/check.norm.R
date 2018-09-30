@@ -36,7 +36,7 @@ if( grepl("\\.gz$", opt$input) ){
     ge_file <- paste0("zcat < '", ge_file, "'")
 }
 
-ge <- as.data.frame(fread(ge_file, header = TRUE, skip = "#chr"))
+ge <- as.data.frame(suppressMessages(fread(ge_file, header = TRUE, skip = "#chr")))
 colnames(ge) <- gsub("#", "", colnames(ge))
 
 set.seed(123)
