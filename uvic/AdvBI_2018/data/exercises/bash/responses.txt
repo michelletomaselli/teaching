@@ -1,0 +1,47 @@
+# ===========================================================================================
+# OUTPUT (!= solution) of the assignments in the Bash exercise 
+# ===========================================================================================
+# 
+# -> Number of transcripts in the + strand of chromosome 1: 
+#
+#	4366 
+#
+# -> Considering that the exon sizes [...] the repeated values:
+#
+#	573
+#	429
+#	275
+#	263
+#	257
+#	101
+#
+# -> ten longest exons in chromosome 1:
+#
+#	7713
+#	5616
+#	5239
+#	4755
+#	4154
+#	4075
+#	3897
+#	3882
+#	3875
+#	3762
+#
+# -> name of the transcript and the number of exons of the ten genes with more exons in chromosome 1:
+#	
+#	AT1G02080.1     49
+#	AT1G08260.1     48
+#	AT1G08260.2     49
+#	AT1G48090.1     65
+#	AT1G48090.2     55
+#	AT1G50030.1     56
+#	AT1G50030.2     56
+#	AT1G64790.1     60
+#	AT1G67120.1     73
+#	AT1G67140.1     48
+#
+# ===========================================================================================
+# IMPORTANT NOTE: remember that with the SECOND GIT EXERCISE, you deliver the result of 
+#		  all the Bash tasks and exercises.
+# ===========================================================================================
